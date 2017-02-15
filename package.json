@@ -1,0 +1,11 @@
+{
+  "name": "cloudhero-auto-restart-every-2-hour",
+  "version": "1.0.0",
+  "author": "Malaohu",
+  "description": "",
+  "dependencies": {
+    "express": "4.*",
+    "ejs": "*",
+    "superagent":"*"
+  }
+}
