@@ -34,7 +34,7 @@
 					<div class="pure-g">
 						<div class="pure-u-1-1">
                         <% if(data[i].protocol && data[i].obfs){%>
-                        <div class="ss_qr" val='<%=data[i].obfs+":" + data[i].protocol+":" + data[i].method + ":" + data[i].password + "@" + data[i].server + ":" + data[i].server_port%>' style="width:350px; height:350px;"></div>
+                        <div class="ssr_qr" val='<%=data[i].obfs+":" + data[i].protocol+":" + data[i].method + ":" + data[i].password + "@" + data[i].server + ":" + data[i].server_port%>' style="width:350px; height:350px;"></div>
                         <%}else{%>
                         <div class="ss_qr" val='<%=data[i].method + ":" + data[i].password + "@" + data[i].server + ":" + data[i].server_port%>' style="width:350px; height:350px;"></div>
                         <%}%>
@@ -79,6 +79,10 @@
 		$('.ss_qr').each(function(i,obj){
 			$(obj).empty();
 			$(obj).qrcode({ width: 350, height: 350, text: "ss://" + btoa($(obj).attr('val'))});
+		});
+		$('.ssr_qr').each(function(i,obj){
+			$(obj).empty();
+			$(obj).qrcode({ width: 350, height: 350, text: "ssr://" + btoa($(obj).attr('val'))});
 		});
 	});
 	</script>
