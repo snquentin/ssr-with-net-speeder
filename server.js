@@ -20,7 +20,7 @@ if(args[0].indexOf('@') > -1)
 
 
 appid   =   args[2] || 'all',
-images  =   ["tutum/centos:centos7","malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker"];
+images  =   ["malaohu/ssr-with-net-speeder","malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker"];
 
 
 app.get('/', function(req, res) {
