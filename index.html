@@ -34,7 +34,7 @@
 					<div class="pure-g">
 						<div class="pure-u-1-1">
                         <% if(data[i].protocol && data[i].obfs){%>
-                        <div class="ssr_qr" val='<%=data[i].server%>:<%=data[i].server_port%>:<%=data[i].protocol%>:<%=data[i].method%>:<%=data[i].obfs%>:<script type="text/javascript">Base64_encode(<%=data[i].password%>)</script>/?remarks=<script type="text/javascript">Base64_encode(<%=data[i].id%>)</script>&group=<script type="text/javascript">Base64_encode(arukas)</script>' style="width:350px; height:350px;"></div>
+                        <div class="ssr_qr" val='<%=data[i].server + ":" + data[i].server_port + ":" + data[i].protocol + ":" + data[i].method + ":" + data[i].obfs + ":" + %><script type="text/javascript">Base64_encode(<%=data[i].password%>)</script><%= + "/?remarks=" + %><script type="text/javascript">Base64_encode(<%=data[i].id%>)</script><%= + "&group=" + %><script type="text/javascript">Base64_encode("arukas")</script>' style="width:350px; height:350px;"></div>
                         <%}else{%>
                         <div class="ss_qr" val='<%=data[i].method + ":" + data[i].password + "@" + data[i].server + ":" + data[i].server_port%>' style="width:350px; height:350px;"></div>
                         <%}%>
