@@ -106,10 +106,10 @@ function deal_data(_appid,data,callback)
                     var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"method":ss_method};
                     if(ss_protocol && ss_obfs)
                     {
-                        ret_json["password"] = btoa(ss_password);
+                        ret_json["password"] = ss_password;
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                        ret_json["remarks_base64"] = btoa(data[i].id);
+                        //ret_json["remarks_base64"] = btoa(data[i].id);
                         ret_json["group"] = "arukas";
                     }else{
                         ret_json["password"] = ss_password;
