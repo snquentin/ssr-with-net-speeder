@@ -101,9 +101,12 @@ function deal_data(_appid,data,callback)
                 //try to get ssr obfs 
                 if(/-o\s+([^ ]+)/.test(cmd))
                     ss_obfs = RegExp.$1;
+				var ss_base64appid = btoa(data[i].id);
+				var ss_base64pass = btoa(ss_password);
+				var ss_base64group = btoa('arukas');
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method,"base64appid":btoa(data[i].id),"base64pass":btoa(ss_password),"base64group":btoa('arukas')};
+                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method,"base64appid":ss_base64appid,"base64pass":ss_base64pass,"base64group":ss_base64group};
                     if(ss_protocol && ss_obfs)
                     {
                         ret_json["protocol"] = ss_protocol;
