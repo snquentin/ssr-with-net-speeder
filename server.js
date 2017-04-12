@@ -108,9 +108,9 @@ function deal_data(_appid,data,callback)
                     {
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                        ret_json["base64appid"] = Base64.encode(data[i].id);
-                        ret_json["base64pass"] = Base64.encode(ss_password);
-                        ret_json["base64group"] = Base64.encode("arukas");
+                        //ret_json["base64appid"] = Base64.encode(data[i].id);
+                        //ret_json["base64pass"] = Base64.encode(ss_password);
+                        //ret_json["base64group"] = Base64.encode("arukas");
                     }
                     ret_list.push(ret_json);
                 }
