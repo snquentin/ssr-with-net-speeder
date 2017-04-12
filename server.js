@@ -106,10 +106,17 @@ function deal_data(_appid,data,callback)
                     var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"method":ss_method};
                     if(ss_protocol && ss_obfs)
                     {
+<<<<<<< HEAD
                         ret_json["password"] = ss_password;
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
                         //ret_json["remarks_base64"] = btoa(data[i].id);
+=======
+                        ret_json["password"] = btoa(ss_password);
+                        ret_json["protocol"] = ss_protocol;
+                        ret_json["obfs"] = ss_obfs;
+                        ret_json["remarks_base64"] = btoa(data[i].id);
+>>>>>>> 99116381142080a5513a4b2153c2e6c492c9a9a3
                         ret_json["group"] = "arukas";
                     }else{
                         ret_json["password"] = ss_password;
