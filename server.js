@@ -85,13 +85,14 @@ function deal_data(_appid,data,callback)
                 var service_port = jn.attributes.port_mappings[j][0].service_port;
                 var container_port = jn.attributes.port_mappings[j][0].container_port;
                 var cmd = jn.attributes.cmd;
-                var ss_method = '',ss_password = '',ss_port = '',ss_protocol = '',ss_obfs = '';
+                var ss_method = '',ss_password = '',ss_port = '',ss_protocol = '',ss_obfs = '',ss_password_base64 = '',ss_remarks_base64 = '';
                 //try to get ss method
                 if(/-m\s+([^ ]+)/.test(cmd))
                     ss_method = RegExp.$1;
                 //try to get ss password
                 if(/-k\s+([^ ]+)/.test(cmd))
                     ss_password = RegExp.$1;
+					ss_password_base64 = btoa(RegExp.$1);
                 //try to get ss port
                 if(/-p\s+([^ ]+)/.test(cmd))
                     ss_port = RegExp.$1;
@@ -101,15 +102,17 @@ function deal_data(_appid,data,callback)
                 //try to get ssr obfs 
                 if(/-o\s+([^ ]+)/.test(cmd))
                     ss_obfs = RegExp.$1;
+				var ss_remarks = data[i].id;
+				var ss_remarks_base64 = btoa(ss_remarks);
                 if(ss_port == container_port)
                 {
                     var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"method":ss_method};
                     if(ss_protocol && ss_obfs)
                     {
-                        ret_json["password"] = btoa(ss_password);
+                        ret_json["password"] = ss_password_base64;
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                        //ret_json["remarks_base64"] = btoa(data[i].id);
+                        ret_json["remarks_base64"] = ss_remarks_base64;
                         ret_json["group"] = "arukas";
                     }else{
                         ret_json["password"] = ss_password;
