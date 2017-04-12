@@ -92,7 +92,7 @@ function deal_data(_appid,data,callback)
                 //try to get ss password
                 if(/-k\s+([^ ]+)/.test(cmd))
                     ss_password = RegExp.$1;
-                    ss_password_base64 = Buffer(RegExp.$1).toString("base64");
+                    ss_password_base64 = Buffer(ss_password).toString("base64");
                 //try to get ss port
                 if(/-p\s+([^ ]+)/.test(cmd))
                     ss_port = RegExp.$1;
@@ -112,7 +112,7 @@ function deal_data(_appid,data,callback)
                         ret_json["password"] = ss_password_base64;
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                        ret_json["remarks_base64"] = ss_remarks;
+                        ret_json["remarks_base64"] = ss_remarks_base64;
                         ret_json["group"] = Buffer("arukas").toString("base64");
                     }else{
                         ret_json["password"] = ss_password;
