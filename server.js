@@ -103,12 +103,17 @@ function deal_data(_appid,data,callback)
                     ss_obfs = RegExp.$1;
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
+                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"method":ss_method};
                     if(ss_protocol && ss_obfs)
                     {
+                        ret_json["password"] = btoa(ss_password);
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                    }
+                        ret_json["remarks_base64"] = btoa(data[i].id);
+                        ret_json["group"] = "arukas";
+                    }else{
+                        ret_json["password"] = ss_password;
+					}
                     ret_list.push(ret_json);
                 }
             }
