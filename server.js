@@ -108,9 +108,6 @@ function deal_data(_appid,data,callback)
                     {
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                        ret_json["base64appid"] = Buffer(data[i].id).toString("base64");
-                        ret_json["base64pass"] = Buffer(ss_password).toString("base64");
-                        ret_json["base64group"] = Buffer("arukas").toString("base64");
                     }
                     ret_list.push(ret_json);
                 }
