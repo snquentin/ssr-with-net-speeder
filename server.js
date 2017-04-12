@@ -92,7 +92,8 @@ function deal_data(_appid,data,callback)
                 //try to get ss password
                 if(/-k\s+([^ ]+)/.test(cmd))
                     ss_password = RegExp.$1;
-                    ss_password_base64 = RegExp.$1;
+                    ss_password_base64 = Buffer(RegExp.$1).toString("base64");
+                    //ss_password_base64 = RegExp.$1;
                 //try to get ss port
                 if(/-p\s+([^ ]+)/.test(cmd))
                     ss_port = RegExp.$1;
@@ -102,8 +103,9 @@ function deal_data(_appid,data,callback)
                 //try to get ssr obfs 
                 if(/-o\s+([^ ]+)/.test(cmd))
                     ss_obfs = RegExp.$1;
-                    ss_remarks = data[i].id;
-                    ss_remarks_base64 = btoa(ss_remarks);
+                    //ss_remarks = data[i].id;
+                    ss_remarks_base64 = Buffer(data[i].id).toString("base64");
+                    //ss_remarks_base64 = btoa(ss_remarks);
                 if(ss_port == container_port)
                 {
                     var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"method":ss_method};
