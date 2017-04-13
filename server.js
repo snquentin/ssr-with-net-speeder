@@ -106,11 +106,11 @@ function deal_data(_appid,data,callback)
                     var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"method":ss_method};
                     if(ss_protocol && ss_obfs)
                     {
-                        ret_json["password"] = Buffer(ss_password).toString("base64");
+                        ret_json["password"] = Buffer(ss_password).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
-                        ret_json["remarks"] = Buffer(data[i].id).toString("base64");
-                        ret_json["group"] = Buffer("arukas").toString("base64");
+                        ret_json["remarks"] = Buffer(data[i].id).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+                        ret_json["group"] = Buffer("arukas").toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
                     }else{
                         ret_json["password"] = ss_password;
 					}
