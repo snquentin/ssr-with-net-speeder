@@ -111,7 +111,7 @@ function deal_data(_appid,data,callback)
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
                         //ret_json["remarks"] = Buffer(data[i].id).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
-                        ret_json["remarks"] = Buffer(data[i].attributes.name).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+                        ret_json["remarks"] = Buffer(data[i].attributes.arukas_domain).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
                         ret_json["group"] = Buffer("arukas").toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
                     }else{
                         ret_json["password"] = ss_password;
